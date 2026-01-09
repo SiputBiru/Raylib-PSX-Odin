@@ -33,9 +33,9 @@ main :: proc() {
 	model: rl.Model = rl.LoadModel("assets/models/psx_retro_computer/scene.gltf")
 
 	// we don't actually need to manually assign the texture
-	texture: rl.Texture2D = rl.LoadTexture(
-		"assets/models/psx_retro_computer/textures/M_RetroComputer_baseColor.png",
-	)
+	// texture: rl.Texture2D = rl.LoadTexture(
+	// 	"assets/models/psx_retro_computer/textures/M_RetroComputer_baseColor.png",
+	// )
 	// model.materials[0].maps[rl.MaterialMapIndex.ALBEDO].texture = texture
 
 	// Apply texture and shader to all of the material
@@ -58,7 +58,7 @@ main :: proc() {
 
 	// Cleanup
 	defer {
-		rl.UnloadTexture(texture)
+		// rl.UnloadTexture(texture)
 		rl.UnloadModel(model)
 		rl.UnloadRenderTexture(target)
 		rl.UnloadShader(ps1_shader)
@@ -67,7 +67,7 @@ main :: proc() {
 
 
 	for !rl.WindowShouldClose() {
-		rl.UpdateCamera(&camera, .FREE)
+		rl.UpdateCamera(&camera, .ORBITAL)
 
 		// draw 3d model
 		rl.BeginTextureMode(target)
@@ -76,7 +76,8 @@ main :: proc() {
 
 		rl.BeginMode3D(camera)
 
-		rl.DrawModel(model, vec3{0.0, 0.0, 0.0}, 2.5, rl.WHITE)
+		// rl.DrawModel(model, vec3{0.0, 0.0, 0.0}, 2.5, rl.WHITE)
+		rl.DrawModel(model, vec3{0.0, 0.0, 0.0}, 5, rl.WHITE)
 		rl.DrawGrid(10, 1.0)
 
 		rl.EndMode3D()
