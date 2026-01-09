@@ -1,1 +1,23 @@
+# --- Build Artifacts ---
 bin/
+out/
+build/
+
+# Executables (Windows)
+*.exe
+*.pdb
+*.rdi
+
+# --- OS Generated Files ---
+.DS_Store
+Thumbs.db
+ehthumbs.db
+
+# --- Editors/IDE ---
+.vscode/
+.idea/
+*.sublime-workspace
+
+# --- Raylib/Odin Specifics ---
+*.spv 
+screenshot*.png
